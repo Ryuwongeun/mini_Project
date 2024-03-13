@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="productSQL">
+
+    <insert id="write" parameterType="product">
+        insert into product values(#{product_id}
+        , #{pd_name}
+        , #{pd_price}
+        , #{brand_id}
+        , #{pd_category}
+        , #{created_who}
+        , now()
+        , #{count_love})
+    </insert>
+
+    <select id="getProductList" resultType="product">
+        select * from product
+    </select>
+
+    <update id="updateProduct" parameterType="java.util.List">
+        update product set pd_name=#{pd_name}
+        , pd_price=#{pd_price}
+        , pd_category=#{pd_category}
+        where product_id=#{product_id}
+    </update>
+</mapper>
