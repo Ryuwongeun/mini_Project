@@ -1,4 +1,4 @@
-package com.i.minishopping.product.bean;
+package com.i.minishopping.product.bean.product;
 
 import lombok.Getter;
 import lombok.Setter;

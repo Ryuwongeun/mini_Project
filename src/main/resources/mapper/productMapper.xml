@@ -6,24 +6,31 @@
 <mapper namespace="productSQL">
 
     <insert id="write" parameterType="product">
-        insert into product values(#{product_id}
-        , #{pd_name}
-        , #{pd_price}
-        , #{brand_id}
-        , #{pd_category}
-        , #{created_who}
+        insert into product values(#{productId}
+        , #{pdName}
+        , #{pdPrice}
+        , #{brandId}
+        , #{pdCategory}
+        , #{createdWho}
         , now()
-        , #{count_love})
+        , #{countLove})
     </insert>
 
     <select id="getProductList" resultType="product">
         select * from product
     </select>
+    <select id="getFindProduct" parameterType="Long" resultType="product">
+        select * from product where product_id=#{id}
+    </select>
 
-    <update id="updateProduct" parameterType="java.util.List">
-        update product set pd_name=#{pd_name}
-        , pd_price=#{pd_price}
-        , pd_category=#{pd_category}
-        where product_id=#{product_id}
+    <update id="updateProduct" parameterType="product">
+        update product set pd_name=#{pdName}
+        , pd_price=#{pdPrice}
+        , pd_category=#{pdCategory}
+        where product_id=#{productId}
     </update>
+
+    <delete id="deleteProduct" parameterType="product">
+        delete FROM product WHERE product_id=#{productId}
+    </delete>
 </mapper>

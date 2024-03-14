@@ -1,6 +1,10 @@
 package com.i.minishopping;
 
-import com.i.minishopping.product.service.ProductService;
+import com.i.minishopping.product.service.detail.DetailService;
+import com.i.minishopping.product.service.log.LogService;
+import com.i.minishopping.product.service.product.ProductSelectService;
+import com.i.minishopping.product.service.product.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,17 +21,24 @@ public class Main {
 
     public void menu(ApplicationContext applicationContext){
         Scanner scan = new Scanner(System.in);
-
         int num;
         UserService userService = null;
         ProductService productService = null;
+        DetailService detailService = null;
+        LogService logService = null;
 
         while(true){
             System.out.println();
             System.out.println("1. user");
             System.out.println("2. product");
+            System.out.println("3. detail");
+            System.out.println("4. log");
+            System.out.println("5. 종료");
             System.out.print("번호 입력 : ");
             num = scan.nextInt();
+
+            if(num == 5) break;
+
             if(num == 1) {
 
                 System.out.println();
@@ -78,6 +89,56 @@ public class Main {
                 if(num==5) break;
 
                 productService.execute();
+
+            } else if(num == 3) {
+                System.out.println();
+                System.out.println("1. 입력");
+                System.out.println("2. 출력");
+                System.out.println("3. 수정");
+                System.out.println("4. 삭제");
+                System.out.println("5. 종료");
+                System.out.print("번호 입력 : ");
+                num = scan.nextInt();
+
+                if(num==1) {
+                    detailService = applicationContext.getBean("detailInsertService", DetailService.class);
+                }else if(num==2) {
+                    detailService = applicationContext.getBean("detailSelectService", DetailService.class);
+                }
+                else if(num==3) {
+                    detailService = applicationContext.getBean("detailUpdateService", DetailService.class);
+                }else if(num==4) {
+                    detailService = applicationContext.getBean("detailDeleteService", DetailService.class);
+                } // if-else if
+
+                if(num==5) break;
+
+                detailService.execute();
+
+            } else if(num == 4) {
+                System.out.println();
+                System.out.println("1. 입력");
+                System.out.println("2. 출력");
+                System.out.println("3. 수정");
+                System.out.println("4. 삭제");
+                System.out.println("5. 종료");
+                System.out.print("번호 입력 : ");
+                num = scan.nextInt();
+
+                if(num==1) {
+                    logService = applicationContext.getBean("logInertService", LogService.class);
+                }else if(num==2) {
+                    logService = applicationContext.getBean("logSelectService", LogService.class);
+                }
+                else if(num==3) {
+                    logService = applicationContext.getBean("logUpdateService", LogService.class);
+                }else if(num==4) {
+                    logService = applicationContext.getBean("logDeleteService", LogService.class);
+                } // if-else if
+
+                if(num==5) break;
+
+                logService.execute();
 
             } else {
                 System.out.println("1~2번 선택");

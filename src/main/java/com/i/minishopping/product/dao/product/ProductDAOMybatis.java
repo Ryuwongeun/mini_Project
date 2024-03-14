@@ -1,10 +1,10 @@
-package com.i.minishopping.product.dao;
+package com.i.minishopping.product.dao.product;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import com.i.minishopping.product.bean.ProductDTO;
+import com.i.minishopping.product.bean.product.ProductDTO;
 
 import java.util.List;
 
@@ -23,6 +23,11 @@ public class ProductDAOMybatis implements ProductDAO {
     @Override
     public List<ProductDTO> getProductList() {
         return sqlSession.selectList("productSQL.getProductList");
+    }
+
+    @Override
+    public ProductDTO getFindProduct(Long id) {
+        return sqlSession.selectOne("productSQL.getFindProduct", id);
     }
 
     @Override

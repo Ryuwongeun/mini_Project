@@ -1,9 +1,9 @@
-package com.i.minishopping.product.service;
+package com.i.minishopping.product.service.product;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import com.i.minishopping.product.bean.ProductDTO;
-import com.i.minishopping.product.dao.ProductDAO;
+import com.i.minishopping.product.bean.product.ProductDTO;
+import com.i.minishopping.product.dao.product.ProductDAO;
 
 import java.util.Scanner;
 
