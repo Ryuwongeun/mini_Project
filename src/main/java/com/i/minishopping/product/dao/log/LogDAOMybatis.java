@@ -10,7 +10,7 @@ import java.util.List;
 
 @Transactional
 @Repository
-public class LogMybatis implements LogDAO {
+public class LogDAOMybatis implements LogDAO {
     @Autowired
     private SqlSession sqlSession;
 

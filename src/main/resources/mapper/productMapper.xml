@@ -19,8 +19,9 @@
     <select id="getProductList" resultType="product">
         select * from product
     </select>
-    <select id="getFindProduct" parameterType="Long" resultType="product">
-        select * from product where product_id=#{id}
+
+    <select id="checkProductId" parameterType="Long" resultType="product">
+        select * from product where product_id=#{productId}
     </select>
 
     <update id="updateProduct" parameterType="product">

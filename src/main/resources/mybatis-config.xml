@@ -13,6 +13,7 @@
         <typeAlias type="com.i.minishopping.product.bean.product.ProductDTO" alias="product" />
         <typeAlias type="com.i.minishopping.product.bean.detail.DetailDTO" alias="detail"/>
         <typeAlias type="com.i.minishopping.product.bean.log.LogDTO" alias="log"/>
+        <typeAlias type="com.i.minishopping.product.bean.brand.brandDTO" alias="brand"/>
     </typeAliases>
 
 </configuration>

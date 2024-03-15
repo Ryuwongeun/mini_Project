@@ -21,5 +21,8 @@
         delete FROM user WHERE id=#{id}
     </delete>
 
+    <select id="checkCreatedWho" parameterType="Long" resultType="user">
+        select * from user id=#{id}
+    </select>
 </mapper>
 

@@ -39,4 +39,9 @@ public class ProductDAOMybatis implements ProductDAO {
     public void deleteProduct(ProductDTO productDTO) {
         sqlSession.delete("productSQL.deleteProduct", productDTO);
     }
+
+    @Override
+    public ProductDTO checkProdutId(Long productId) {
+        return sqlSession.selectOne("productSQL.checkProductId", productId);
+    }
 }

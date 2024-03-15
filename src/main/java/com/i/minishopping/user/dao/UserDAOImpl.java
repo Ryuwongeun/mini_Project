@@ -39,6 +39,10 @@ public class UserDAOImpl implements UserDAO {
 
     }
 
+    @Override
+    public UserDTO checkCreatedWho(Long createdWho) {
+        return sqlSession.selectOne("userSQL.checkCreatedWho", createdWho);
+    }
 
     /*@Override
     public void updateUser(UserDTO com.i.minishopping.user) {

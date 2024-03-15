@@ -12,4 +12,6 @@ public interface ProductDAO {
     void updateProduct(ProductDTO productDTO);
 
     void deleteProduct(ProductDTO productDTO);
+
+    ProductDTO checkProdutId(Long productId);
 }

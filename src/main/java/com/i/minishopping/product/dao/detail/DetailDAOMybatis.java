@@ -10,7 +10,7 @@ import java.util.List;
 
 @Transactional
 @Repository
-public class DetailMybatis implements DetailDAO {
+public class DetailDAOMybatis implements DetailDAO {
     @Autowired
     private SqlSession sqlSession;
 

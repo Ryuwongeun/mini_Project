@@ -16,4 +16,6 @@ public interface UserDAO {
     void updateUser(UserDTO user); // 기존 사용자 정보를 업데이트하는 메소드
 
     void deleteUser(String id); // 사용자를 삭제하는 메소드
+
+    UserDTO checkCreatedWho(Long createdWho);
 }
