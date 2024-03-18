@@ -18,11 +18,11 @@
     </update>
 
     <delete id="deleteUser" parameterType="user">
-        delete FROM user WHERE id=#{id}
+        delete FROM user WHERE user_id=#{userId}
     </delete>
 
     <select id="checkCreatedWho" parameterType="Long" resultType="user">
-        select * from user id=#{id}
+        select * from user user_id=#{createdWho}
     </select>
 </mapper>
 
