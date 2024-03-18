@@ -12,4 +12,6 @@ public interface DetailDAO {
     void updateDetail(DetailDTO detailDTO);
 
     void deleteDetail(DetailDTO detailDTO);
+
+    DetailDTO checkSize(String size);
 }

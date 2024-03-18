@@ -1,5 +1,6 @@
 package com.i.minishopping;
 
+import com.i.minishopping.brand.service.BrandService;
 import com.i.minishopping.product.service.detail.DetailService;
 import com.i.minishopping.product.service.log.LogService;
 import com.i.minishopping.product.service.product.ProductSelectService;
@@ -22,6 +23,7 @@ public class Main {
     public void menu(ApplicationContext applicationContext){
         Scanner scan = new Scanner(System.in);
         int num;
+        BrandService brandService = null;
         UserService userService = null;
         ProductService productService = null;
         DetailService detailService = null;
@@ -30,14 +32,15 @@ public class Main {
         while(true){
             System.out.println();
             System.out.println("1. user");
-            System.out.println("2. product");
-            System.out.println("3. detail");
-            System.out.println("4. log");
-            System.out.println("5. 종료");
+            System.out.println("2. brand");
+            System.out.println("3. product");
+            System.out.println("4. detail");
+            System.out.println("5. log");
+            System.out.println("6. 종료");
             System.out.print("번호 입력 : ");
             num = scan.nextInt();
 
-            if(num == 5) break;
+            if(num == 6) break;
 
             if(num == 1) {
 
@@ -76,6 +79,31 @@ public class Main {
                 num = scan.nextInt();
 
                 if(num==1) {
+                    brandService = applicationContext.getBean("brandInsertService", BrandService.class);
+                }else if(num==2) {
+                    brandService = applicationContext.getBean("brandSelectService", BrandService.class);
+                }
+                else if(num==3) {
+                    brandService = applicationContext.getBean("brandUpdateService", BrandService.class);
+                }else if(num==4) {
+                    brandService = applicationContext.getBean("brandDeleteService", BrandService.class);
+                } // if-else if
+
+                if(num==5) break;
+
+                brandService.execute();
+
+            } else if(num == 3) {
+                System.out.println();
+                System.out.println("1. 입력");
+                System.out.println("2. 출력");
+                System.out.println("3. 수정");
+                System.out.println("4. 삭제");
+                System.out.println("5. 종료");
+                System.out.print("번호 입력 : ");
+                num = scan.nextInt();
+
+                if(num==1) {
                     productService = applicationContext.getBean("productInsertService", ProductService.class);
                 }else if(num==2) {
                     productService = applicationContext.getBean("productSelectService", ProductService.class);
@@ -90,7 +118,8 @@ public class Main {
 
                 productService.execute();
 
-            } else if(num == 3) {
+
+            } else if(num == 4) {
                 System.out.println();
                 System.out.println("1. 입력");
                 System.out.println("2. 출력");
@@ -115,7 +144,7 @@ public class Main {
 
                 detailService.execute();
 
-            } else if(num == 4) {
+            } else if(num == 5) {
                 System.out.println();
                 System.out.println("1. 입력");
                 System.out.println("2. 출력");
@@ -141,7 +170,7 @@ public class Main {
                 logService.execute();
 
             } else {
-                System.out.println("1~2번 선택");
+                System.out.println("1~6번 선택");
                 continue;
             }
 
@@ -158,4 +187,4 @@ public class Main {
         System.out.println("\n프로그램 종료합니다");
     } // main
 
-} // end class
+}

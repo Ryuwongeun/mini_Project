@@ -28,6 +28,7 @@
         update product set pd_name=#{pdName}
         , pd_price=#{pdPrice}
         , pd_category=#{pdCategory}
+        , now()
         where product_id=#{productId}
     </update>
 

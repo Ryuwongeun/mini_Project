@@ -52,7 +52,8 @@ public class SpringConfiguration {
         sqlSessionFactoryBean.setMapperLocations(new ClassPathResource("mapper/userMapper.xml"),
                                                  new ClassPathResource("mapper/productMapper.xml"),
                                                  new ClassPathResource("mapper/detailMapper.xml"),
-                                                 new ClassPathResource("mapper/logMapper.xml"));
+                                                 new ClassPathResource("mapper/logMapper.xml"),
+                                                 new ClassPathResource("mapper/brandMapper.xml"));
 
         return sqlSessionFactoryBean.getObject();
     } // sqlSessionFactory

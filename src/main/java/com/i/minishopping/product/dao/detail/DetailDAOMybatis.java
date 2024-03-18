@@ -33,4 +33,9 @@ public class DetailDAOMybatis implements DetailDAO {
     public void deleteDetail(DetailDTO detailDTO) {
         sqlSession.delete("detailSQL.deleteDetail", detailDTO);
     }
+
+    @Override
+    public DetailDTO checkSize(String size) {
+        return sqlSession.selectOne("detailSQL,checkSize", size);
+    }
 }

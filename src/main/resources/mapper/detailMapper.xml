@@ -26,4 +26,8 @@
     <delete id="deleteDetail" parameterType="detail">
         delete FROM product_detail WHERE product_id=#{productId}
     </delete>
+
+    <select id="checkSize" parameterType="String" resultType="detail">
+        select * from product_detail where size=#{size}
+    </select>
 </mapper>

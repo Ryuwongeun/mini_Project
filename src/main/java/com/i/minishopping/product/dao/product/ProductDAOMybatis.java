@@ -27,7 +27,7 @@ public class ProductDAOMybatis implements ProductDAO {
 
     @Override
     public ProductDTO getFindProduct(Long id) {
-        return sqlSession.selectOne("productSQL.getFindProduct", id);
+        return null;
     }
 
     @Override
@@ -42,6 +42,11 @@ public class ProductDAOMybatis implements ProductDAO {
 
     @Override
     public ProductDTO checkProdutId(Long productId) {
+        return null;
+    }
+
+    @Override
+    public ProductDTO checkProductId(Long productId) {
         return sqlSession.selectOne("productSQL.checkProductId", productId);
     }
 }

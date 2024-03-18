@@ -12,7 +12,7 @@
     <select id="getUserList" resultType="user">
         select * from user
     </select>
-    
+
     <update id="updateUser" parameterType="user">
         update user set name=#{name}, pwd=#{pwd} where id=#{id}
     </update>
